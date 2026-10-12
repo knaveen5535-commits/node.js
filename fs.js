@@ -1,0 +1,33 @@
+// fs - file system module
+
+const fs = require('fs');   // importing the file system module
+
+
+
+if(!fs.existsSync('./docs')) {
+    fs.mkdir('./docs', (err) => {
+        if (err) {
+            console.error('Error creating directory:', err);
+        } else {
+            console.log('Directory created successfully');
+        }
+    });
+}
+
+
+fs.writeFile('./docs/test.txt', 'this is the test file of the node js', err =>{
+    if(err){
+        console.log(errr.message);
+    }else{
+        console.log('File written successfully');
+    }
+})
+
+fs.readFile('./docs/test.txt', (err,data) => {
+    if(err) {
+        console.log(err.message);
+    }
+    else{
+        console.log(data.toString());
+    }
+})
